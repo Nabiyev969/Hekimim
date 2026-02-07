@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 final class ProfileViewModel: ObservableObject {
     let name = "Nurida İsmayılova"
@@ -18,4 +19,22 @@ final class ProfileViewModel: ObservableObject {
         let subtitle: String
         let isUpcoming: Bool
     }
+    
+    let upcoming = Appointment(
+        date: "Jan\n30",
+        title: "Ginekoloq müayinəsi - Liv Bona...",
+        subtitle: "Sabah,10:00, Dr.K Doğa Seçkin",
+        isUpcoming: true
+    )
+    
+    let previous: [Appointment] = [
+        .init(date: "Jan\n10",
+              title: "Ümumi müayinə - Liv Bona Dea",
+              subtitle: "10:00, Dr.Koray Acarlı",
+              isUpcoming: false),
+        .init(date: "Dec\n12",
+              title: "Kardioloji müayinə - Liv Bona Dea",
+              subtitle: "11:00, Dr.Kadriye Kılıçkesmez",
+              isUpcoming: false)
+    ]
 }

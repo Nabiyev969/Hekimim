@@ -11,9 +11,19 @@ enum HekimimColors {
     static let background = Color(hex: "#E9F3F2")
     static let card = Color.white
     static let primary = Color(hex: "#07A795")
-    static let secondary = Color(hex: "#6E6E6E")
-    static let disabled = Color(hex: "#CFCFCF")
+    static let textPrimary = Color.black
+    static let textSecondary = Color(hex: "#4C4C4C")
+    
+    static let badgeFill = Color(hex: "#E7F3F1")
     static let divider = Color(hex: "#E6E6E6")
+    
+    static let grayButton = Color(hex: "#D6D6D6")
+    static let grayButtonText = Color(hex: "#6F6F6F")
+    
+    static let lightButtonFill = Color(hex: "#EAF6F3")
+    static let lightButtonBorder = Color(hex: "#D6EEE8")
+    
+    static let iconGray = Color(hex: "#9AA0A6")
 }
 
 extension Color {
