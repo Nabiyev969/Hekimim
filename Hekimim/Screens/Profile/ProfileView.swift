@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @StateObject private var vm = ProfileViewModel()
+    @State private var showEditProfile = false
     
     var body: some View {
         ZStack {
@@ -18,7 +19,7 @@ struct ProfileView: View {
                 
                 TopBar(
                     onBack: { print("back") },
-                    onEdit: { print("edit") }
+                    onEdit: { showEditProfile = true }
                 )
                 .padding(.top, 6)
                 .padding(.horizontal, 20)
@@ -57,6 +58,10 @@ struct ProfileView: View {
             }
             .padding(0)
             .frame(maxHeight: .infinity, alignment: .top)
+        }
+        .navigationDestination(isPresented: $showEditProfile) {
+            EditProfileView()
+                .navigationBarBackButtonHidden(true)
         }
     }
 }
@@ -109,7 +114,7 @@ struct ProfileHeader: View {
             }
             .frame(width: 88, height: 88)
             .clipShape(Circle())
-            .overlay(Circle().stroke(Color.white, lineWidth: 4))
+            .overlay(Circle().stroke(Color.gray.opacity(0.25), lineWidth: 1))
 
             Text(vm.name)
                 .font(.system(size: 22, weight: .semibold))
@@ -311,7 +316,7 @@ struct PrimaryBottomButton: View {
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity, minHeight: 56)
                 .background(HekimimColors.primary)
-                .cornerRadius(18)
+                .cornerRadius(8)
         }
     }
 }
@@ -319,3 +324,4 @@ struct PrimaryBottomButton: View {
 #Preview {
     ProfileView()
 }
+
