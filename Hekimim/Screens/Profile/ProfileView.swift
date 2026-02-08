@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ProfileView: View {
     @StateObject private var vm = ProfileViewModel()
+    
     @State private var showEditProfile = false
+    @State private var goToReservations = false
     
     var body: some View {
         ZStack {
@@ -31,7 +33,7 @@ struct ProfileView: View {
                 SectionHeader(
                     title: "Növbəti həkim qəbulu",
                     action: "Hamısına bax",
-                    onTapAction: {}
+                    onTapAction: { goToReservations = true }
                 )
                 .padding(.top, 10)
                 .padding(.horizontal, 20)
@@ -41,7 +43,7 @@ struct ProfileView: View {
                 SectionHeader(
                     title: "Öncəki rezervasiyalarım",
                     action: "Hamısına bax",
-                    onTapAction: {}
+                    onTapAction: { goToReservations = true }
                 )
                 .padding(.top, 10)
                 .padding(.horizontal, 20)
@@ -55,6 +57,11 @@ struct ProfileView: View {
                 }
                 .padding(.bottom, 8)
                 .padding(.horizontal, 20)
+                
+                NavigationLink(
+                    destination: ReservationsView().navigationBarBackButtonHidden(true), isActive: $goToReservations
+                ) { EmptyView() }
+                    .hidden()
             }
             .padding(0)
             .frame(maxHeight: .infinity, alignment: .top)
@@ -83,7 +90,7 @@ struct TopBar: View {
 
             Button(action: onEdit) {
                 Text("Redaktə et")
-                    .font(.system(size: 17, weight: .medium))
+                    .font(.system(size: 16, weight: .medium))
                     .foregroundColor(HekimimColors.primary)
                     .frame(height: 44)
             }
@@ -312,7 +319,7 @@ struct PrimaryBottomButton: View {
     var body: some View {
         Button(action: action) {
             Text(title)
-                .font(.system(size: 20, weight: .semibold))
+                .font(.system(size: 16, weight: .medium))
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity, minHeight: 56)
                 .background(HekimimColors.primary)

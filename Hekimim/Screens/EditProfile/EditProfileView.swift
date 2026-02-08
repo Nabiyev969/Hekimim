@@ -23,7 +23,7 @@ struct EditProfileView: View {
                 EditProfileHeaderCard {
                     dismiss()
                 }
-                .padding(.top, 6)
+                .padding(.top, -15)
 
                 VStack(spacing: 16) {
                     InfoFieldCard(title: "Ad", value: $name)
