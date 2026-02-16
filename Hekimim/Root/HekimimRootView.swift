@@ -10,7 +10,7 @@ import SwiftUI
 struct HekimimRootView: View {
     var body: some View {
         NavigationStack {
-            ProfileView()
+            HomeView()
         }
     }
 }

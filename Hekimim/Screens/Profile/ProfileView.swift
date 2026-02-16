@@ -13,6 +13,8 @@ struct ProfileView: View {
     @State private var showEditProfile = false
     @State private var goToReservations = false
     
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
         ZStack {
             HekimimColors.background.ignoresSafeArea()
@@ -20,7 +22,7 @@ struct ProfileView: View {
             VStack(spacing: 14) {
                 
                 TopBar(
-                    onBack: { print("back") },
+                    onBack: { dismiss() },
                     onEdit: { showEditProfile = true }
                 )
                 .padding(.top, 6)

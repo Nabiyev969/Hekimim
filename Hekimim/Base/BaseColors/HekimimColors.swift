@@ -19,6 +19,7 @@ enum HekimimColors {
     
     static let grayButton = Color(hex: "#D6D6D6")
     static let grayButtonText = Color(hex: "#6F6F6F")
+    static let secondaryButton = Color(hex: "#24C4AC")
     
     static let lightButtonFill = Color(hex: "#EAF6F3")
     static let lightButtonBorder = Color(hex: "#D6EEE8")
