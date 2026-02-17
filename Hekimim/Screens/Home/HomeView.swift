@@ -9,7 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject private var vm = HomeViewModel()
+    
     @State private var goToProfile = false
+    @State private var goToSearch = false
 
     var body: some View {
         ZStack {
@@ -21,7 +23,7 @@ struct HomeView: View {
                     HomeTopBar(
                         searchText: $vm.searchText,
                         onMenu: { print("menu") },
-                        onSearch: { print("search") },
+                        onSearch: { goToSearch = true },
                         onProfile: { goToProfile = true }
                     )
                     .padding(.top, 8)
@@ -63,6 +65,12 @@ struct HomeView: View {
                         destination: ProfileView().navigationBarBackButtonHidden(true),
                         isActive: $goToProfile
                     ) { EmptyView() }
+                        .hidden()
+                    NavigationLink(
+                        destination: SearchView().navigationBarBackButtonHidden(true),
+                        isActive: $goToSearch) {
+                            EmptyView()
+                        }
                         .hidden()
                 }
                 .padding(.bottom, 20)
